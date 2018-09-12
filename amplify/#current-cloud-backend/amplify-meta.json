@@ -1,14 +1,32 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "encountertracker-20180912125306-authRole",
-            "UnauthRoleArn": "arn:aws:iam::880809221583:role/encountertracker-20180912125306-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::880809221583:role/encountertracker-20180912125306-authRole",
-            "Region": "ap-southeast-2",
-            "DeploymentBucketName": "encountertracker-20180912125306-deployment",
-            "UnauthRoleName": "encountertracker-20180912125306-unauthRole",
-            "StackName": "encountertracker-20180912125306",
-            "StackId": "arn:aws:cloudformation:ap-southeast-2:880809221583:stack/encountertracker-20180912125306/2a5a3240-b63b-11e8-8eeb-503f2373503d"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "encountertracker-20180912125306-authRole",
+			"UnauthRoleArn": "arn:aws:iam::880809221583:role/encountertracker-20180912125306-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::880809221583:role/encountertracker-20180912125306-authRole",
+			"Region": "ap-southeast-2",
+			"DeploymentBucketName": "encountertracker-20180912125306-deployment",
+			"UnauthRoleName": "encountertracker-20180912125306-unauthRole",
+			"StackName": "encountertracker-20180912125306",
+			"StackId": "arn:aws:cloudformation:ap-southeast-2:880809221583:stack/encountertracker-20180912125306/2a5a3240-b63b-11e8-8eeb-503f2373503d"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/encountertracker-20180912125306-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-09-12T03:28:32.398Z",
+			"output": {
+				"S3BucketSecureURL": "https://encountertracker-20180912125712--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://encountertracker-20180912125712--hostingbucket.s3-website-ap-southeast-2.amazonaws.com",
+				"Region": "ap-southeast-2",
+				"HostingBucketName": "encountertracker-20180912125712--hostingbucket"
+			},
+			"lastPushDirHash": "OawSIZwMHnpmX3Wq8dQtCT9pMGw="
+		}
+	}
 }
