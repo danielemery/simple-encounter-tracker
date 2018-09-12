@@ -117,9 +117,10 @@ input DeletePartyInput {
 
 type Player {
   id: ID!
-  name: String!
-  maxhp: Int!
-  currenthp: Int!
+  playerName: String!
+  characterName: String!
+  maxHP: Int!
+  currentHP: Int!
   party: Party
 }
 
@@ -130,26 +131,29 @@ type ModelPlayerConnection {
 
 input ModelPlayerFilterInput {
   id: ModelIDFilterInput
-  name: ModelStringFilterInput
-  maxhp: ModelIntFilterInput
-  currenthp: ModelIntFilterInput
+  playerName: ModelStringFilterInput
+  characterName: ModelStringFilterInput
+  maxHP: ModelIntFilterInput
+  currentHP: ModelIntFilterInput
   and: [ModelPlayerFilterInput]
   or: [ModelPlayerFilterInput]
   not: ModelPlayerFilterInput
 }
 
 input CreatePlayerInput {
-  name: String!
-  maxhp: Int!
-  currenthp: Int!
+  playerName: String!
+  characterName: String!
+  maxHP: Int!
+  currentHP: Int!
   playerPartyId: ID
 }
 
 input UpdatePlayerInput {
   id: ID!
-  name: String
-  maxhp: Int
-  currenthp: Int
+  playerName: String
+  characterName: String
+  maxHP: Int
+  currentHP: Int
   playerPartyId: ID
 }
 

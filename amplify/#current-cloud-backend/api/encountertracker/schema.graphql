@@ -6,8 +6,9 @@ type Party @model {
 
 type Player @model {
   id: ID!
-  name: String!
-  maxhp: Int!
-  currenthp: Int!
+	playerName: String!
+  characterName: String!
+  maxHP: Int!
+  currentHP: Int!
   party: Party @connection(name: "PartyMembers")
 }

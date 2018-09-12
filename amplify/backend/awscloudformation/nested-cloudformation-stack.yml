@@ -147,10 +147,10 @@
 							"Outputs.UserPoolId"
 						]
 					},
-					"schemaGraphql": "s3://encountertracker-20180912125306-deployment/amplify-appsync-files/schema.graphql.1536725745168",
+					"schemaGraphql": "s3://encountertracker-20180912125306-deployment/amplify-appsync-files/schema.graphql.1536744269827",
 					"ResolverBucket": "encountertracker-20180912125306-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1536725745168"
+					"DeploymentTimestamp": "1536744269827"
 				}
 			}
 		}
