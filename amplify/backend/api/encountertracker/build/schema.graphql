@@ -1,0 +1,158 @@
+type Mutation {
+  createParty(input: CreatePartyInput!): Party
+  updateParty(input: UpdatePartyInput!): Party
+  deleteParty(input: DeletePartyInput!): Party
+  createPlayer(input: CreatePlayerInput!): Player
+  updatePlayer(input: UpdatePlayerInput!): Player
+  deletePlayer(input: DeletePlayerInput!): Player
+}
+
+type Query {
+  getParty(id: ID!): Party
+  listPartys(filter: ModelPartyFilterInput, limit: Int, nextToken: String): ModelPartyConnection
+  getPlayer(id: ID!): Player
+  listPlayers(filter: ModelPlayerFilterInput, limit: Int, nextToken: String): ModelPlayerConnection
+}
+
+type Subscription {
+  onCreateParty: Party @aws_subscribe(mutations: ["createParty"])
+  onUpdateParty: Party @aws_subscribe(mutations: ["updateParty"])
+  onDeleteParty: Party @aws_subscribe(mutations: ["deleteParty"])
+  onCreatePlayer: Player @aws_subscribe(mutations: ["createPlayer"])
+  onUpdatePlayer: Player @aws_subscribe(mutations: ["updatePlayer"])
+  onDeletePlayer: Player @aws_subscribe(mutations: ["deletePlayer"])
+}
+
+type Party {
+  id: ID!
+  name: String!
+  players(filter: ModelPlayerFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelPlayerConnection
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelPartyConnection {
+  items: [Party]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelPartyFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  and: [ModelPartyFilterInput]
+  or: [ModelPartyFilterInput]
+  not: ModelPartyFilterInput
+}
+
+input CreatePartyInput {
+  name: String!
+}
+
+input UpdatePartyInput {
+  id: ID!
+  name: String
+}
+
+input DeletePartyInput {
+  id: ID
+}
+
+type Player {
+  id: ID!
+  name: String!
+  maxhp: Int!
+  currenthp: Int!
+  party: Party
+}
+
+type ModelPlayerConnection {
+  items: [Player]
+  nextToken: String
+}
+
+input ModelPlayerFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  maxhp: ModelIntFilterInput
+  currenthp: ModelIntFilterInput
+  and: [ModelPlayerFilterInput]
+  or: [ModelPlayerFilterInput]
+  not: ModelPlayerFilterInput
+}
+
+input CreatePlayerInput {
+  name: String!
+  maxhp: Int!
+  currenthp: Int!
+  playerPartyId: ID
+}
+
+input UpdatePlayerInput {
+  id: ID!
+  name: String
+  maxhp: Int
+  currenthp: Int
+  playerPartyId: ID
+}
+
+input DeletePlayerInput {
+  id: ID
+}

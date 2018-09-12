@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/encountertracker-20180912125306-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-09-12T03:35:26.064Z",
+			"lastPushTimeStamp": "2018-09-12T04:18:18.495Z",
 			"output": {
 				"S3BucketSecureURL": "https://encountertracker-20180912125712--hostingbucket.s3.amazonaws.com",
 				"WebsiteURL": "http://encountertracker-20180912125712--hostingbucket.s3-website-ap-southeast-2.amazonaws.com",
@@ -37,7 +37,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/encountertracker-20180912125306-deployment/amplify-cfn-templates/auth/cognito73ccc2a2-cloudformation-template.yml",
 				"logicalId": "authcognito73ccc2a2"
 			},
-			"lastPushTimeStamp": "2018-09-12T03:35:26.066Z",
+			"lastPushTimeStamp": "2018-09-12T04:18:18.495Z",
 			"output": {
 				"AppClientSecret": "16ab38mregu63s3mdon0dglfectau4s7bn8370h85dfg5o07pj69",
 				"UserPoolId": "ap-southeast-2_CaIJfM3rd",
@@ -48,6 +48,27 @@
 				"UserPoolName": "cognito73ccc2a2_userpool_73ccc2a2"
 			},
 			"lastPushDirHash": "TZg+TvLDHgIyNu5C97CesioQPFw="
+		}
+	},
+	"api": {
+		"encountertracker": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS",
+				"GraphQLAPIIdOutput": "rwhke6o2undmtaok6hivigdi64",
+				"GraphQLAPIEndpointOutput": "https://ndrom2n4wbhpzkblcklc2swzje.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-jctsr6zjlbeg5ftlvgnphjwcmm",
+				"AuthCognitoUserPoolIdOutput": "ap-southeast-2_CaIJfM3rd",
+				"AuthCognitoUserPoolNativeClientId": "See UserPool: ap-southeast-2_CaIJfM3rd",
+				"AuthCognitoUserPoolJSClientId": "See UserPool: ap-southeast-2_CaIJfM3rd"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/encountertracker-20180912125306-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apiencountertracker"
+			},
+			"lastPushTimeStamp": "2018-09-12T04:18:18.497Z",
+			"lastPushDirHash": "a0QtLGwGD0u8h94wQ9Ha6mMy7Qo="
 		}
 	}
 }

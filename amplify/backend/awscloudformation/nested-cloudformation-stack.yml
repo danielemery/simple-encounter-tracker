@@ -134,6 +134,25 @@
 					"authSelections": "identityPoolAndUserPool"
 				}
 			}
+		},
+		"apiencountertracker": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/encountertracker-20180912125306-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"Parameters": {
+					"AppSyncApiName": "encountertracker",
+					"AuthCognitoUserPoolId": {
+						"Fn::GetAtt": [
+							"authcognito73ccc2a2",
+							"Outputs.UserPoolId"
+						]
+					},
+					"schemaGraphql": "s3://encountertracker-20180912125306-deployment/amplify-appsync-files/schema.graphql.1536725745168",
+					"ResolverBucket": "encountertracker-20180912125306-deployment",
+					"ResolverRootKey": "amplify-appsync-files",
+					"DeploymentTimestamp": "1536725745168"
+				}
+			}
 		}
 	},
 	"Outputs": {

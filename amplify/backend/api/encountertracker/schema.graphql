@@ -1,0 +1,13 @@
+type Party @model {
+  id: ID!
+  name: String!
+  players: [Player] @connection(name: "PartyMembers")
+}
+
+type Player @model {
+  id: ID!
+  name: String!
+  maxhp: Int!
+  currenthp: Int!
+  party: Party @connection(name: "PartyMembers")
+}
