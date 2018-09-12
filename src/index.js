@@ -8,12 +8,13 @@ import registerServiceWorker from './registerServiceWorker';
 import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './aws-exports';
 
-import createStore from './redux/configureStore';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from './App';
+import createStore from './redux/configureStore';
 
 import DM from './components/dm';
 import Player from './components/player';
+import Header from './components/header';
 
 Amplify.configure(aws_exports);
 const store = createStore();
@@ -22,12 +23,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <div>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/player">Player</Link></li>
-                    <li><Link to="/dm">DM</Link></li>
-                </ul>
-                <Route exact path="/" component={App} />
+                <Header />
                 <Route path="/player" component={Player} />
                 <Route path="/dm" component={DM} />
             </div>
