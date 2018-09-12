@@ -7,7 +7,7 @@ import PartyList from './party-list';
 class DM extends Component {
   render() {
     return (
-    <div className='container-fluid p-md-3'>
+    <div>
       <h1>Dungeon Master</h1>
       <PartyList />
     </div>
