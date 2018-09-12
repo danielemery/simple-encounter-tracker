@@ -20,18 +20,21 @@ export const partyListLoadSucceeded = (parties) => {
 
 const reducer = (state = {
 	parties: [],
-	loading: false
+	loading: false,
+	loaded: false
 }, action) => {
 	switch(action.type) {
 		case PARTY_LIST_LOAD_REQUESTED:
 			return {
 				...state,
-				loading: true
+				loading: true,
+				loaded: false
 			}
 			case PARTY_LIST_LOAD_SUCCEEDED:
 				return {
 					...state,
 					loading: false,
+					loaded: true,
 					parties: action.parties
 				}
 			default: 

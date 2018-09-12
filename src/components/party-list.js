@@ -2,32 +2,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { partyListLoadRequested } from '../redux/modules/party';
+import PartyCards from './party-cards';
 
 class PartyList extends Component {
   render() {
-    let { loading, parties } = this.props;
-
-    let playerList = parties.map(p => 
-      <li key={p.id}>{p.name}</li>
-    );
+		let { loading, parties } = this.props;
 
     return (
       <div>
         <h2>Current Parties</h2>
         { loading && <div><br/>Loading...</div> }
-        <ul>{playerList}</ul>
+				{ parties.length > 0 && <PartyCards parties={parties} /> }
       </div>
     );
   }
   componentDidMount() {
-    this.props.onPartiesRequested();
+		if(!this.props.loaded && !this.props.loading) {
+			this.props.onPartiesRequested();
+		}
   }
 }
 
 const mapStateToProps = state => {
   return {
       parties: state.party.parties,
-      loading: state.party.loading
+			loading: state.party.loading,
+			loaded: state.party.loaded
   }
 }
 
