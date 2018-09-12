@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
+import Rx from 'rxjs/Rx'
 
 import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './aws-exports';
