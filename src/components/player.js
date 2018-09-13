@@ -1,8 +1,12 @@
 import React from 'react';
+import { Segment } from 'semantic-ui-react';
 
 const Player = () => {
     return (
-        <span>Welcome, Player</span>
+        <Segment basic>
+            <h1>Player</h1>
+            Welcome, Player
+        </Segment>
     );
 }
 

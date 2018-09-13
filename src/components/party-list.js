@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Message } from 'semantic-ui-react';
+import { Message, Segment } from 'semantic-ui-react';
 
 import { partyListLoadRequested } from '../redux/modules/party';
 import PartyCards from './party-cards';
@@ -10,7 +10,7 @@ class PartyList extends Component {
 		let { loading, parties, errors } = this.props;
 
     return (
-      <div>
+      <Segment basic>
         <h2>Current Parties</h2>
 				{ errors.length > 0 && 
 					<Message
@@ -21,7 +21,7 @@ class PartyList extends Component {
 				}
         { loading && <div><br/>Loading...</div> }
 				{ parties.length > 0 && <PartyCards parties={parties} /> }
-      </div>
+      </Segment>
     );
   }
   componentDidMount() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Segment } from 'semantic-ui-react';
 import { withAuthenticator } from 'aws-amplify-react';
 
 import PartyList from './party-list';
@@ -7,10 +7,10 @@ import PartyList from './party-list';
 class DM extends Component {
   render() {
     return (
-    <div>
+    <Segment basic>
       <h1>Dungeon Master</h1>
       <PartyList />
-    </div>
+    </Segment>
     );
   }
 }
